@@ -1,0 +1,707 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A6613A1F19B60E53005DE5A1 /* libZXingObjC-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6613A0019B60AA3005DE5A1 /* libZXingObjC-iOS.a */; };
+		A6613A2C19B616BE005DE5A1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6613A2B19B616BE005DE5A1 /* AudioToolbox.framework */; };
+		A6613A2E19B616C4005DE5A1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6613A2D19B616C4005DE5A1 /* QuartzCore.framework */; };
+		A6613A3019B616D9005DE5A1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6613A2F19B616D9005DE5A1 /* CoreVideo.framework */; };
+		A696BA8B19B6089A008ACC24 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A696BA8A19B6089A008ACC24 /* AVFoundation.framework */; };
+		A696BA8D19B608A1008ACC24 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A696BA8C19B608A1008ACC24 /* ImageIO.framework */; };
+		A696BA8F19B608AA008ACC24 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A696BA8E19B608AA008ACC24 /* CoreMedia.framework */; };
+		A6A7938A19B6062B00319215 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A7938919B6062B00319215 /* Foundation.framework */; };
+		A6A7938C19B6062B00319215 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A7938B19B6062B00319215 /* CoreGraphics.framework */; };
+		A6A7938E19B6062B00319215 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A7938D19B6062B00319215 /* UIKit.framework */; };
+		A6A793AF19B6062B00319215 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A793AE19B6062B00319215 /* XCTest.framework */; };
+		A6A793B019B6062B00319215 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A7938919B6062B00319215 /* Foundation.framework */; };
+		A6A793B119B6062B00319215 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A7938D19B6062B00319215 /* UIKit.framework */; };
+		A6ADE05119B8AEF7006345C2 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6ADE03419B8AEF7006345C2 /* Main_iPad.storyboard */; };
+		A6ADE05219B8AEF7006345C2 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6ADE03619B8AEF7006345C2 /* Main_iPhone.storyboard */; };
+		A6ADE05319B8AEF7006345C2 /* CodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6ADE03919B8AEF7006345C2 /* CodeCell.m */; };
+		A6ADE05419B8AEF7006345C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6ADE03B19B8AEF7006345C2 /* InfoPlist.strings */; };
+		A6ADE05619B8AEF7006345C2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6ADE03F19B8AEF7006345C2 /* Images.xcassets */; };
+		A6ADE05719B8AEF7006345C2 /* KXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6ADE04119B8AEF7006345C2 /* KXAppDelegate.m */; };
+		A6ADE05819B8AEF7006345C2 /* KXBarcodeDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6ADE04319B8AEF7006345C2 /* KXBarcodeDisplayController.m */; };
+		A6ADE05919B8AEF7006345C2 /* KXBarcodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6ADE04519B8AEF7006345C2 /* KXBarcodeViewController.m */; };
+		A6ADE05A19B8AEF7006345C2 /* KXCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A6ADE04719B8AEF7006345C2 /* KXCode.m */; };
+		A6ADE05B19B8AEF7006345C2 /* KXScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6ADE04919B8AEF7006345C2 /* KXScanController.m */; };
+		A6ADE05C19B8AEF7006345C2 /* KXSelectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6ADE04B19B8AEF7006345C2 /* KXSelectionController.m */; };
+		A6ADE05D19B8AEF7006345C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6ADE04C19B8AEF7006345C2 /* main.m */; };
+		A6ADE05E19B8AEF7006345C2 /* MyCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A6ADE04E19B8AEF7006345C2 /* MyCollectionViewLayout.m */; };
+		A6FE779D19B8B346009CDD24 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6FE779B19B8B346009CDD24 /* Model.xcdatamodeld */; };
+		A6FE77A719B8B8CA009CDD24 /* KXToast.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FE77A619B8B8CA009CDD24 /* KXToast.m */; };
+		A6FE77AE19B8F3F0009CDD24 /* KXRectView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FE77AD19B8F3F0009CDD24 /* KXRectView.m */; };
+		A6FE77B619B91BA2009CDD24 /* KXLicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FE77B519B91BA2009CDD24 /* KXLicenseViewController.m */; };
+		A6FE77B919B91C0D009CDD24 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = A6FE77B819B91C0D009CDD24 /* license.html */; };
+		A6FE77BC19B91D41009CDD24 /* KXAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FE77BB19B91D41009CDD24 /* KXAboutController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A66139FF19B60AA3005DE5A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25403CB3166A96FA00E13304;
+			remoteInfo = "ZXingObjC-iOS";
+		};
+		A6613A0119B60AA3005DE5A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25403CC4166A96FA00E13304;
+			remoteInfo = "Unit Tests iOS";
+		};
+		A6613A0319B60AA3005DE5A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25404166166AADAC00E13304;
+			remoteInfo = "ZXingObjC-osx";
+		};
+		A6613A0519B60AA3005DE5A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25404178166AADAC00E13304;
+			remoteInfo = "Unit Tests OS X";
+		};
+		A6613A0719B60AA3005DE5A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2540439E166ABA0A00E13304;
+			remoteInfo = "OS X Framework";
+		};
+		A6613A3319B61D8F005DE5A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25403CB2166A96FA00E13304;
+			remoteInfo = "ZXingObjC-iOS";
+		};
+		A6A793B219B6062B00319215 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A6A7937E19B6062B00319215 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A6A7938519B6062B00319215;
+			remoteInfo = CardCode;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingObjC.xcodeproj; path = "../ZXingObjC-master/ZXingObjC.xcodeproj"; sourceTree = "<group>"; };
+		A6613A2B19B616BE005DE5A1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A6613A2D19B616C4005DE5A1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A6613A2F19B616D9005DE5A1 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		A696BA8A19B6089A008ACC24 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A696BA8C19B608A1008ACC24 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		A696BA8E19B608AA008ACC24 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A6A7938619B6062B00319215 /* Squirrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squirrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6A7938919B6062B00319215 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A6A7938B19B6062B00319215 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A6A7938D19B6062B00319215 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A6A793AD19B6062B00319215 /* SquirrelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquirrelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6A793AE19B6062B00319215 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A6ADE03519B8AEF7006345C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main_iPad.storyboard; sourceTree = "<group>"; };
+		A6ADE03719B8AEF7006345C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		A6ADE03819B8AEF7006345C2 /* CodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CodeCell.h; path = CardCode/CodeCell.h; sourceTree = "<group>"; };
+		A6ADE03919B8AEF7006345C2 /* CodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CodeCell.m; path = CardCode/CodeCell.m; sourceTree = "<group>"; };
+		A6ADE03C19B8AEF7006345C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		A6ADE03F19B8AEF7006345C2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CardCode/Images.xcassets; sourceTree = "<group>"; };
+		A6ADE04019B8AEF7006345C2 /* KXAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXAppDelegate.h; path = CardCode/KXAppDelegate.h; sourceTree = "<group>"; };
+		A6ADE04119B8AEF7006345C2 /* KXAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXAppDelegate.m; path = CardCode/KXAppDelegate.m; sourceTree = "<group>"; };
+		A6ADE04219B8AEF7006345C2 /* KXBarcodeDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXBarcodeDisplayController.h; path = CardCode/KXBarcodeDisplayController.h; sourceTree = "<group>"; };
+		A6ADE04319B8AEF7006345C2 /* KXBarcodeDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXBarcodeDisplayController.m; path = CardCode/KXBarcodeDisplayController.m; sourceTree = "<group>"; };
+		A6ADE04419B8AEF7006345C2 /* KXBarcodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXBarcodeViewController.h; path = CardCode/KXBarcodeViewController.h; sourceTree = "<group>"; };
+		A6ADE04519B8AEF7006345C2 /* KXBarcodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXBarcodeViewController.m; path = CardCode/KXBarcodeViewController.m; sourceTree = "<group>"; };
+		A6ADE04619B8AEF7006345C2 /* KXCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXCode.h; path = CardCode/KXCode.h; sourceTree = "<group>"; };
+		A6ADE04719B8AEF7006345C2 /* KXCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXCode.m; path = CardCode/KXCode.m; sourceTree = "<group>"; };
+		A6ADE04819B8AEF7006345C2 /* KXScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXScanController.h; path = CardCode/KXScanController.h; sourceTree = "<group>"; };
+		A6ADE04919B8AEF7006345C2 /* KXScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXScanController.m; path = CardCode/KXScanController.m; sourceTree = "<group>"; };
+		A6ADE04A19B8AEF7006345C2 /* KXSelectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXSelectionController.h; path = CardCode/KXSelectionController.h; sourceTree = "<group>"; };
+		A6ADE04B19B8AEF7006345C2 /* KXSelectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXSelectionController.m; path = CardCode/KXSelectionController.m; sourceTree = "<group>"; };
+		A6ADE04C19B8AEF7006345C2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CardCode/main.m; sourceTree = "<group>"; };
+		A6ADE04D19B8AEF7006345C2 /* MyCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCollectionViewLayout.h; path = CardCode/MyCollectionViewLayout.h; sourceTree = "<group>"; };
+		A6ADE04E19B8AEF7006345C2 /* MyCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCollectionViewLayout.m; path = CardCode/MyCollectionViewLayout.m; sourceTree = "<group>"; };
+		A6ADE04F19B8AEF7006345C2 /* Squirrel-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Squirrel-Info.plist"; path = "CardCode/Squirrel-Info.plist"; sourceTree = "<group>"; };
+		A6ADE05019B8AEF7006345C2 /* Squirrel-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Squirrel-Prefix.pch"; path = "CardCode/Squirrel-Prefix.pch"; sourceTree = "<group>"; };
+		A6FE779C19B8B346009CDD24 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		A6FE77A519B8B8CA009CDD24 /* KXToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXToast.h; path = CardCode/KXToast.h; sourceTree = "<group>"; };
+		A6FE77A619B8B8CA009CDD24 /* KXToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXToast.m; path = CardCode/KXToast.m; sourceTree = "<group>"; };
+		A6FE77AC19B8F3F0009CDD24 /* KXRectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXRectView.h; path = CardCode/KXRectView.h; sourceTree = "<group>"; };
+		A6FE77AD19B8F3F0009CDD24 /* KXRectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXRectView.m; path = CardCode/KXRectView.m; sourceTree = "<group>"; };
+		A6FE77B419B91BA1009CDD24 /* KXLicenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXLicenseViewController.h; path = CardCode/KXLicenseViewController.h; sourceTree = "<group>"; };
+		A6FE77B519B91BA2009CDD24 /* KXLicenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXLicenseViewController.m; path = CardCode/KXLicenseViewController.m; sourceTree = "<group>"; };
+		A6FE77B819B91C0D009CDD24 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
+		A6FE77BA19B91D41009CDD24 /* KXAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXAboutController.h; path = CardCode/KXAboutController.h; sourceTree = "<group>"; };
+		A6FE77BB19B91D41009CDD24 /* KXAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXAboutController.m; path = CardCode/KXAboutController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A6A7938319B6062B00319215 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6613A3019B616D9005DE5A1 /* CoreVideo.framework in Frameworks */,
+				A696BA8F19B608AA008ACC24 /* CoreMedia.framework in Frameworks */,
+				A6613A2E19B616C4005DE5A1 /* QuartzCore.framework in Frameworks */,
+				A6613A2C19B616BE005DE5A1 /* AudioToolbox.framework in Frameworks */,
+				A6613A1F19B60E53005DE5A1 /* libZXingObjC-iOS.a in Frameworks */,
+				A696BA8D19B608A1008ACC24 /* ImageIO.framework in Frameworks */,
+				A696BA8B19B6089A008ACC24 /* AVFoundation.framework in Frameworks */,
+				A6A7938E19B6062B00319215 /* UIKit.framework in Frameworks */,
+				A6A7938C19B6062B00319215 /* CoreGraphics.framework in Frameworks */,
+				A6A7938A19B6062B00319215 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6A793AA19B6062B00319215 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6A793AF19B6062B00319215 /* XCTest.framework in Frameworks */,
+				A6A793B119B6062B00319215 /* UIKit.framework in Frameworks */,
+				A6A793B019B6062B00319215 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A66139F819B60AA2005DE5A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A6613A0019B60AA3005DE5A1 /* libZXingObjC-iOS.a */,
+				A6613A0219B60AA3005DE5A1 /* Unit Tests iOS.xctest */,
+				A6613A0419B60AA3005DE5A1 /* libZXingObjC-osx.a */,
+				A6613A0619B60AA3005DE5A1 /* Unit Tests OS X.xctest */,
+				A6613A0819B60AA3005DE5A1 /* ZXingObjC.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A6A7937D19B6062B00319215 = {
+			isa = PBXGroup;
+			children = (
+				A6ADE00519B8AEB4006345C2 /* Squirrel */,
+				A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */,
+				A6A7938819B6062B00319215 /* Frameworks */,
+				A6A7938719B6062B00319215 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A6A7938719B6062B00319215 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A6A7938619B6062B00319215 /* Squirrel.app */,
+				A6A793AD19B6062B00319215 /* SquirrelTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A6A7938819B6062B00319215 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A6613A2F19B616D9005DE5A1 /* CoreVideo.framework */,
+				A6613A2D19B616C4005DE5A1 /* QuartzCore.framework */,
+				A6613A2B19B616BE005DE5A1 /* AudioToolbox.framework */,
+				A696BA8E19B608AA008ACC24 /* CoreMedia.framework */,
+				A696BA8C19B608A1008ACC24 /* ImageIO.framework */,
+				A696BA8A19B6089A008ACC24 /* AVFoundation.framework */,
+				A6A7938919B6062B00319215 /* Foundation.framework */,
+				A6A7938B19B6062B00319215 /* CoreGraphics.framework */,
+				A6A7938D19B6062B00319215 /* UIKit.framework */,
+				A6A793AE19B6062B00319215 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6ADE00519B8AEB4006345C2 /* Squirrel */ = {
+			isa = PBXGroup;
+			children = (
+				A6FE77B819B91C0D009CDD24 /* license.html */,
+				A6FE779B19B8B346009CDD24 /* Model.xcdatamodeld */,
+				A6ADE03419B8AEF7006345C2 /* Main_iPad.storyboard */,
+				A6ADE03619B8AEF7006345C2 /* Main_iPhone.storyboard */,
+				A6ADE03319B8AEF7006345C2 /* Base.lproj */,
+				A6ADE03819B8AEF7006345C2 /* CodeCell.h */,
+				A6ADE03919B8AEF7006345C2 /* CodeCell.m */,
+				A6ADE03A19B8AEF7006345C2 /* en.lproj */,
+				A6ADE03F19B8AEF7006345C2 /* Images.xcassets */,
+				A6ADE04019B8AEF7006345C2 /* KXAppDelegate.h */,
+				A6FE77A519B8B8CA009CDD24 /* KXToast.h */,
+				A6FE77A619B8B8CA009CDD24 /* KXToast.m */,
+				A6ADE04119B8AEF7006345C2 /* KXAppDelegate.m */,
+				A6FE77B719B91BE6009CDD24 /* controller */,
+				A6ADE04619B8AEF7006345C2 /* KXCode.h */,
+				A6ADE04719B8AEF7006345C2 /* KXCode.m */,
+				A6FE77AC19B8F3F0009CDD24 /* KXRectView.h */,
+				A6FE77AD19B8F3F0009CDD24 /* KXRectView.m */,
+				A6ADE04C19B8AEF7006345C2 /* main.m */,
+				A6ADE04D19B8AEF7006345C2 /* MyCollectionViewLayout.h */,
+				A6ADE04E19B8AEF7006345C2 /* MyCollectionViewLayout.m */,
+				A6ADE04F19B8AEF7006345C2 /* Squirrel-Info.plist */,
+				A6ADE05019B8AEF7006345C2 /* Squirrel-Prefix.pch */,
+			);
+			name = Squirrel;
+			sourceTree = "<group>";
+		};
+		A6ADE03319B8AEF7006345C2 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Base.lproj;
+			path = CardCode/Base.lproj;
+			sourceTree = "<group>";
+		};
+		A6ADE03A19B8AEF7006345C2 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				A6ADE03B19B8AEF7006345C2 /* InfoPlist.strings */,
+			);
+			name = en.lproj;
+			path = CardCode/en.lproj;
+			sourceTree = "<group>";
+		};
+		A6FE77B719B91BE6009CDD24 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A6FE77B419B91BA1009CDD24 /* KXLicenseViewController.h */,
+				A6FE77B519B91BA2009CDD24 /* KXLicenseViewController.m */,
+				A6FE77BA19B91D41009CDD24 /* KXAboutController.h */,
+				A6FE77BB19B91D41009CDD24 /* KXAboutController.m */,
+				A6ADE04219B8AEF7006345C2 /* KXBarcodeDisplayController.h */,
+				A6ADE04319B8AEF7006345C2 /* KXBarcodeDisplayController.m */,
+				A6ADE04419B8AEF7006345C2 /* KXBarcodeViewController.h */,
+				A6ADE04519B8AEF7006345C2 /* KXBarcodeViewController.m */,
+				A6ADE04819B8AEF7006345C2 /* KXScanController.h */,
+				A6ADE04919B8AEF7006345C2 /* KXScanController.m */,
+				A6ADE04A19B8AEF7006345C2 /* KXSelectionController.h */,
+				A6ADE04B19B8AEF7006345C2 /* KXSelectionController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A6A7938519B6062B00319215 /* Squirrel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6A793BE19B6062B00319215 /* Build configuration list for PBXNativeTarget "Squirrel" */;
+			buildPhases = (
+				A6A7938219B6062B00319215 /* Sources */,
+				A6A7938319B6062B00319215 /* Frameworks */,
+				A6A7938419B6062B00319215 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6613A3419B61D8F005DE5A1 /* PBXTargetDependency */,
+			);
+			name = Squirrel;
+			productName = CardCode;
+			productReference = A6A7938619B6062B00319215 /* Squirrel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A6A793AC19B6062B00319215 /* SquirrelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6A793C119B6062B00319215 /* Build configuration list for PBXNativeTarget "SquirrelTests" */;
+			buildPhases = (
+				A6A793A919B6062B00319215 /* Sources */,
+				A6A793AA19B6062B00319215 /* Frameworks */,
+				A6A793AB19B6062B00319215 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6A793B319B6062B00319215 /* PBXTargetDependency */,
+			);
+			name = SquirrelTests;
+			productName = CardCodeTests;
+			productReference = A6A793AD19B6062B00319215 /* SquirrelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A6A7937E19B6062B00319215 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = KX;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Keexa;
+				TargetAttributes = {
+					A6A793AC19B6062B00319215 = {
+						TestTargetID = A6A7938519B6062B00319215;
+					};
+				};
+			};
+			buildConfigurationList = A6A7938119B6062B00319215 /* Build configuration list for PBXProject "Squirrel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A6A7937D19B6062B00319215;
+			productRefGroup = A6A7938719B6062B00319215 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A66139F819B60AA2005DE5A1 /* Products */;
+					ProjectRef = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				A6A7938519B6062B00319215 /* Squirrel */,
+				A6A793AC19B6062B00319215 /* SquirrelTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A6613A0019B60AA3005DE5A1 /* libZXingObjC-iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libZXingObjC-iOS.a";
+			remoteRef = A66139FF19B60AA3005DE5A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A6613A0219B60AA3005DE5A1 /* Unit Tests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Unit Tests iOS.xctest";
+			remoteRef = A6613A0119B60AA3005DE5A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A6613A0419B60AA3005DE5A1 /* libZXingObjC-osx.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libZXingObjC-osx.a";
+			remoteRef = A6613A0319B60AA3005DE5A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A6613A0619B60AA3005DE5A1 /* Unit Tests OS X.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Unit Tests OS X.xctest";
+			remoteRef = A6613A0519B60AA3005DE5A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A6613A0819B60AA3005DE5A1 /* ZXingObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ZXingObjC.framework;
+			remoteRef = A6613A0719B60AA3005DE5A1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A6A7938419B6062B00319215 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6ADE05119B8AEF7006345C2 /* Main_iPad.storyboard in Resources */,
+				A6ADE05619B8AEF7006345C2 /* Images.xcassets in Resources */,
+				A6ADE05419B8AEF7006345C2 /* InfoPlist.strings in Resources */,
+				A6FE77B919B91C0D009CDD24 /* license.html in Resources */,
+				A6ADE05219B8AEF7006345C2 /* Main_iPhone.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6A793AB19B6062B00319215 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A6A7938219B6062B00319215 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6ADE05D19B8AEF7006345C2 /* main.m in Sources */,
+				A6ADE05A19B8AEF7006345C2 /* KXCode.m in Sources */,
+				A6ADE05C19B8AEF7006345C2 /* KXSelectionController.m in Sources */,
+				A6FE77AE19B8F3F0009CDD24 /* KXRectView.m in Sources */,
+				A6ADE05B19B8AEF7006345C2 /* KXScanController.m in Sources */,
+				A6ADE05919B8AEF7006345C2 /* KXBarcodeViewController.m in Sources */,
+				A6FE77BC19B91D41009CDD24 /* KXAboutController.m in Sources */,
+				A6ADE05319B8AEF7006345C2 /* CodeCell.m in Sources */,
+				A6ADE05819B8AEF7006345C2 /* KXBarcodeDisplayController.m in Sources */,
+				A6FE77A719B8B8CA009CDD24 /* KXToast.m in Sources */,
+				A6FE77B619B91BA2009CDD24 /* KXLicenseViewController.m in Sources */,
+				A6FE779D19B8B346009CDD24 /* Model.xcdatamodeld in Sources */,
+				A6ADE05719B8AEF7006345C2 /* KXAppDelegate.m in Sources */,
+				A6ADE05E19B8AEF7006345C2 /* MyCollectionViewLayout.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6A793A919B6062B00319215 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A6613A3419B61D8F005DE5A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ZXingObjC-iOS";
+			targetProxy = A6613A3319B61D8F005DE5A1 /* PBXContainerItemProxy */;
+		};
+		A6A793B319B6062B00319215 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A6A7938519B6062B00319215 /* Squirrel */;
+			targetProxy = A6A793B219B6062B00319215 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A6ADE03419B8AEF7006345C2 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6ADE03519B8AEF7006345C2 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			path = CardCode/Base.lproj;
+			sourceTree = "<group>";
+		};
+		A6ADE03619B8AEF7006345C2 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6ADE03719B8AEF7006345C2 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			path = CardCode/Base.lproj;
+			sourceTree = "<group>";
+		};
+		A6ADE03B19B8AEF7006345C2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A6ADE03C19B8AEF7006345C2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A6A793BC19B6062B00319215 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A6A793BD19B6062B00319215 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A6A793BF19B6062B00319215 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Marco Bonifazi (4G837S3M4B)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CardCode/Squirrel-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"~/Desktop/ZXingObjC-master/**",
+				);
+				INFOPLIST_FILE = "CardCode/Squirrel-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Squirrel;
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A6A793C019B6062B00319215 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Marco Bonifazi (4G837S3M4B)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CardCode/Squirrel-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"~/Desktop/ZXingObjC-master/**",
+				);
+				INFOPLIST_FILE = "CardCode/Squirrel-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Squirrel;
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A6A793C219B6062B00319215 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CardCode.app/CardCode";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CardCode/CardCode-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CardCodeTests/SquirrelTests-Info.plist";
+				PRODUCT_NAME = SquirrelTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A6A793C319B6062B00319215 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CardCode.app/CardCode";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CardCode/CardCode-Prefix.pch";
+				INFOPLIST_FILE = "CardCodeTests/SquirrelTests-Info.plist";
+				PRODUCT_NAME = SquirrelTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A6A7938119B6062B00319215 /* Build configuration list for PBXProject "Squirrel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6A793BC19B6062B00319215 /* Debug */,
+				A6A793BD19B6062B00319215 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6A793BE19B6062B00319215 /* Build configuration list for PBXNativeTarget "Squirrel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6A793BF19B6062B00319215 /* Debug */,
+				A6A793C019B6062B00319215 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6A793C119B6062B00319215 /* Build configuration list for PBXNativeTarget "SquirrelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6A793C219B6062B00319215 /* Debug */,
+				A6A793C319B6062B00319215 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A6FE779B19B8B346009CDD24 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A6FE779C19B8B346009CDD24 /* Model.xcdatamodel */,
+			);
+			currentVersion = A6FE779C19B8B346009CDD24 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A6A7937E19B6062B00319215 /* Project object */;
+}
