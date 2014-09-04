@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface KXAboutController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *versionText;
 
 @end

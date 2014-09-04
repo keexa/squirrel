@@ -23,11 +23,6 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -40,12 +35,6 @@
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"license" ofType:@"html"]isDirectory:NO]]];
 }
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 - (IBAction)okButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

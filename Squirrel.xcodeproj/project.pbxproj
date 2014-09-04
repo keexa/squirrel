@@ -39,6 +39,7 @@
 		A6FE77B619B91BA2009CDD24 /* KXLicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FE77B519B91BA2009CDD24 /* KXLicenseViewController.m */; };
 		A6FE77B919B91C0D009CDD24 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = A6FE77B819B91C0D009CDD24 /* license.html */; };
 		A6FE77BC19B91D41009CDD24 /* KXAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FE77BB19B91D41009CDD24 /* KXAboutController.m */; };
+		A6FE77C019B927E8009CDD24 /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FE77BF19B927E8009CDD24 /* OverlayView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,8 @@
 		A6FE77B819B91C0D009CDD24 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		A6FE77BA19B91D41009CDD24 /* KXAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXAboutController.h; path = CardCode/KXAboutController.h; sourceTree = "<group>"; };
 		A6FE77BB19B91D41009CDD24 /* KXAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXAboutController.m; path = CardCode/KXAboutController.m; sourceTree = "<group>"; };
+		A6FE77BE19B927E8009CDD24 /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
+		A6FE77BF19B927E8009CDD24 /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				A6FE77B419B91BA1009CDD24 /* KXLicenseViewController.h */,
+				A6FE77BE19B927E8009CDD24 /* OverlayView.h */,
+				A6FE77BF19B927E8009CDD24 /* OverlayView.m */,
 				A6FE77B519B91BA2009CDD24 /* KXLicenseViewController.m */,
 				A6FE77BA19B91D41009CDD24 /* KXAboutController.h */,
 				A6FE77BB19B91D41009CDD24 /* KXAboutController.m */,
@@ -432,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6ADE05D19B8AEF7006345C2 /* main.m in Sources */,
+				A6FE77C019B927E8009CDD24 /* OverlayView.m in Sources */,
 				A6ADE05A19B8AEF7006345C2 /* KXCode.m in Sources */,
 				A6ADE05C19B8AEF7006345C2 /* KXSelectionController.m in Sources */,
 				A6FE77AE19B8F3F0009CDD24 /* KXRectView.m in Sources */,

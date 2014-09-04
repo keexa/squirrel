@@ -65,6 +65,52 @@ NSData* _imgData;
     // self.imageView.transform = CGAffineTransformMakeRotation(M_PI/2);
     
 }
+
+-(void) prepareCamera {
+    UIToolbar* toolBar=[[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-54, self.view.frame.size.width, 55)];
+    
+    toolBar.barStyle =  UIBarStyleBlackOpaque;
+    NSArray *items=[NSArray arrayWithObjects:
+                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel  target:self action:@selector(cancelPicture)],
+                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace  target:nil action:nil],
+                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera  target:self action:@selector(shootPicture)],
+                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace  target:nil action:nil],
+                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace  target:nil action:nil],
+                    nil];
+    [toolBar setItems:items];
+    
+    // create the overlay view
+    OverlayView* overlayView = [[OverlayView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-44)];
+    
+    // important - it needs to be transparent so the camera preview shows through!
+    overlayView.opaque=NO;
+    overlayView.backgroundColor=[UIColor clearColor];
+    
+    // parent view for our overlay
+    UIView *cameraView=[[UIView alloc] initWithFrame:self.view.bounds];
+    [cameraView addSubview:overlayView];
+    [cameraView addSubview:toolBar];
+    
+    imagePickerController = [[UIImagePickerController alloc] init];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO){
+        NSLog(@"Camera not available");
+        return;
+    }
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    imagePickerController.delegate = self;
+    
+    // hide the camera controls
+    imagePickerController.showsCameraControls=NO;
+    imagePickerController.wantsFullScreenLayout = YES;
+    [imagePickerController setCameraOverlayView:cameraView];
+    
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+
+
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

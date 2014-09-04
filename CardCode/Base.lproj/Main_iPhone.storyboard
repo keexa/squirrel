@@ -18,7 +18,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsz-Dr-cOs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="192" y="-466"/>
+            <point key="canvasLocation" x="344" y="-446"/>
         </scene>
         <!--Selection Controller - First-->
         <scene sceneID="W3I-pn-N6e">
@@ -39,7 +39,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="Cell" id="3Dl-ha-5BI" customClass="CodeCell">
-                                        <rect key="frame" x="5" y="5" width="151" height="146"/>
+                                        <rect key="frame" x="5" y="69" width="151" height="146"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="151" height="146"/>
@@ -101,14 +101,21 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="ido-US-uA3"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Your barcodes" id="CjE-d5-mo1">
+                        <barButtonItem key="leftBarButtonItem" image="info" style="plain" id="Fot-87-XrM">
+                            <connections>
+                                <segue destination="V5o-IH-MCd" kind="push" id="3kh-sJ-JJn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Hm-yz-sGm">
                             <connections>
                                 <segue destination="QUy-BD-bpt" kind="push" identifier="startBarcodeScan" id="nXY-1I-C0q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="b44-UA-9Mm" id="BsY-ie-mwE"/>
                         <outlet property="plusButton" destination="sBd-3x-7Pa" id="X4g-HT-fBh"/>
@@ -118,7 +125,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qh2-T1-AhA" sceneMemberID="firstResponder"/>
                 <exit id="Vn3-OM-bNh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="733" y="-466"/>
+            <point key="canvasLocation" x="893" y="-382"/>
         </scene>
         <!--Scan Controller - Second-->
         <scene sceneID="ot8-2e-RuS">
@@ -146,7 +153,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Scan" image="second" id="Z7h-1E-pvt"/>
                     <navigationItem key="navigationItem" title="Scan new barcode" id="T7h-BW-hQi"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="decodedLabel" destination="kAe-Br-RRs" id="SRx-cO-GcL"/>
                         <outlet property="labelText" destination="kAe-Br-RRs" id="Abn-4M-OYo"/>
@@ -156,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="753" y="442"/>
+            <point key="canvasLocation" x="1437" y="410"/>
         </scene>
         <!--Barcode View Controller-->
         <scene sceneID="eR4-TM-FVu">
@@ -210,7 +216,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="d66-VK-uca">
-                                <rect key="frame" x="175" y="129" width="140.00000003725287" height="140"/>
+                                <rect key="frame" x="175.00000003725287" y="129" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" image="plus">
@@ -225,7 +231,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Lgh-6F-eUr"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="barcodeButton" destination="aKa-ra-uoN" id="0SZ-e9-Q0f"/>
                         <outlet property="barcodeLabel" destination="6gH-HD-X8J" id="w9K-ZR-qXo"/>
@@ -273,13 +278,6 @@
                                             <action selector="cameraButtonPressed:" destination="Da3-0M-UIX" eventType="touchUpInside" id="BSx-EC-0Ly"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AhW-aM-g7l">
-                                        <rect key="frame" x="7" y="10" width="120" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="0.1121968404" green="0.89245074729999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
@@ -293,6 +291,14 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AhW-aM-g7l">
+                                        <rect key="frame" x="0.0" y="0.0" width="184" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="Da3-0M-UIX" id="wCL-IK-ZQp"/>
@@ -310,84 +316,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17R-mc-Sth" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1549" y="471"/>
+            <point key="canvasLocation" x="2125" y="-285"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="AF2-OT-DCh">
-            <objects>
-                <viewController id="nDK-Nf-SIN" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="StB-ah-ZeG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fN4-zq-j77" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--About View Controller-->
+        <!--About Controller-->
         <scene sceneID="Dvt-tZ-B2f">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" id="V5o-IH-MCd" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="V5o-IH-MCd" customClass="KXAboutController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o7B-2C-uYN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="keexa_logo" id="WVR-rs-2jv">
-                                <rect key="frame" x="30" y="11" width="260" height="52"/>
+                                <rect key="frame" x="30" y="71" width="260" height="52"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="V9O-0N-yYs">
-                                <rect key="frame" x="100" y="438" width="120" height="30"/>
+                                <rect key="frame" x="100" y="425" width="120" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Disclaimer">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="disclaimerButtonPressed:" destination="V5o-IH-MCd" eventType="touchDown" id="dg9-7Y-RRc"/>
                                     <segue destination="EgB-my-7Cv" kind="push" id="JJK-RR-obq"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Squirrel v" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="sqP-qh-wck">
-                                <rect key="frame" x="30" y="70" width="260" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Squirrel v" textAlignment="center" minimumFontSize="17" id="sqP-qh-wck">
+                                <rect key="frame" x="20" y="130" width="270" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" id="g2d-UW-WbR">
-                                <rect key="frame" x="30" y="131" width="260" height="176"/>
+                                <rect key="frame" x="30" y="191" width="260" height="176"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Your feedback is much appreciated!  Send me an email at info@keexa.com
+                                <string key="text">Your feedback is much appreciated!  You can send me an email at info@keexa.com
 </string>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" id="Nc2-BP-4zg">
-                                <rect key="frame" x="30" y="300" width="260" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.98823535442352295" green="0.98431378602981567" blue="0.96078437566757202" alpha="1" colorSpace="deviceRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="4BH-K2-gv7"/>
                     <connections>
-                        <outlet property="accountText" destination="Nc2-BP-4zg" id="Os3-SI-piZ"/>
-                        <outlet property="versionText" destination="sqP-qh-wck" id="jqH-Qn-cKc"/>
+                        <outlet property="versionText" destination="sqP-qh-wck" id="PCp-XY-EIb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJP-Q2-3RC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911" y="-1067"/>
+            <point key="canvasLocation" x="773" y="-1069"/>
         </scene>
         <!--License View Controller-->
         <scene sceneID="ibe-5D-gc3">
@@ -398,21 +382,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleAspectFit" scalesPageToFit="YES" id="Htt-qg-pCL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="419"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IBn-8c-zh2">
-                                <rect key="frame" x="100" y="445" width="120" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                <state key="normal" title="OK">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="okButtonPressed:" destination="EgB-my-7Cv" eventType="touchDown" id="bXJ-lH-cQs"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -423,12 +397,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Hd-Vc-jws" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="850" y="-723"/>
+            <point key="canvasLocation" x="1802" y="-1095"/>
         </scene>
     </scenes>
     <resources>
         <image name="camera_icon" width="200" height="129"/>
         <image name="cancel" width="32" height="32"/>
+        <image name="info" width="16" height="16"/>
         <image name="keexa_logo" width="600" height="165"/>
         <image name="plus" width="64" height="64"/>
         <image name="plus_white" width="64" height="64"/>

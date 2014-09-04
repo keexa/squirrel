@@ -29,6 +29,24 @@
     // Do any additional setup after loading the view.
 }
 
+- (NSString *)appNameAndVersionNumberDisplayString {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    //NSString *appDisplayName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+    //NSString *majorVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *minorVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    
+    return [NSString stringWithFormat:@"Squirrel v%@",
+            minorVersion];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    NSLog(@"%s - START", __PRETTY_FUNCTION__);
+    [super viewWillAppear:animated];
+    NSString* appName = [self appNameAndVersionNumberDisplayString];
+    [self.versionText setText:appName];
+    NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
