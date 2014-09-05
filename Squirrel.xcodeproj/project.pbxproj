@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A60560B319B9BABE006C4323 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A60560B019B9BABE006C4323 /* SVProgressHUD.bundle */; };
+		A60560B419B9BABE006C4323 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A60560B219B9BABE006C4323 /* SVProgressHUD.m */; };
 		A6613A1F19B60E53005DE5A1 /* libZXingObjC-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6613A0019B60AA3005DE5A1 /* libZXingObjC-iOS.a */; };
 		A6613A2C19B616BE005DE5A1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6613A2B19B616BE005DE5A1 /* AudioToolbox.framework */; };
 		A6613A2E19B616C4005DE5A1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6613A2D19B616C4005DE5A1 /* QuartzCore.framework */; };
@@ -39,7 +41,7 @@
 		A6FE77B619B91BA2009CDD24 /* KXLicenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FE77B519B91BA2009CDD24 /* KXLicenseViewController.m */; };
 		A6FE77B919B91C0D009CDD24 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = A6FE77B819B91C0D009CDD24 /* license.html */; };
 		A6FE77BC19B91D41009CDD24 /* KXAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FE77BB19B91D41009CDD24 /* KXAboutController.m */; };
-		A6FE77C019B927E8009CDD24 /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FE77BF19B927E8009CDD24 /* OverlayView.m */; };
+		A6FE77C619B92C68009CDD24 /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6FE77C519B92C67009CDD24 /* OverlayView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A60560AF19B9BABE006C4323 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		A60560B019B9BABE006C4323 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		A60560B119B9BABE006C4323 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		A60560B219B9BABE006C4323 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingObjC.xcodeproj; path = "../ZXingObjC-master/ZXingObjC.xcodeproj"; sourceTree = "<group>"; };
 		A6613A2B19B616BE005DE5A1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A6613A2D19B616C4005DE5A1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -141,8 +147,7 @@
 		A6FE77B819B91C0D009CDD24 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		A6FE77BA19B91D41009CDD24 /* KXAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KXAboutController.h; path = CardCode/KXAboutController.h; sourceTree = "<group>"; };
 		A6FE77BB19B91D41009CDD24 /* KXAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KXAboutController.m; path = CardCode/KXAboutController.m; sourceTree = "<group>"; };
-		A6FE77BE19B927E8009CDD24 /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
-		A6FE77BF19B927E8009CDD24 /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
+		A6FE77C519B92C67009CDD24 /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +181,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A60560AE19B9BABE006C4323 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				A60560AF19B9BABE006C4323 /* SVProgressHUD-Prefix.pch */,
+				A60560B019B9BABE006C4323 /* SVProgressHUD.bundle */,
+				A60560B119B9BABE006C4323 /* SVProgressHUD.h */,
+				A60560B219B9BABE006C4323 /* SVProgressHUD.m */,
+			);
+			name = SVProgressHUD;
+			path = CardCode/SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		A66139F819B60AA2005DE5A1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +208,7 @@
 		A6A7937D19B6062B00319215 = {
 			isa = PBXGroup;
 			children = (
+				A60560AE19B9BABE006C4323 /* SVProgressHUD */,
 				A6ADE00519B8AEB4006345C2 /* Squirrel */,
 				A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */,
 				A6A7938819B6062B00319215 /* Frameworks */,
@@ -227,6 +245,7 @@
 		A6ADE00519B8AEB4006345C2 /* Squirrel */ = {
 			isa = PBXGroup;
 			children = (
+				A6FE77C519B92C67009CDD24 /* OverlayView.xib */,
 				A6FE77B819B91C0D009CDD24 /* license.html */,
 				A6FE779B19B8B346009CDD24 /* Model.xcdatamodeld */,
 				A6ADE03419B8AEF7006345C2 /* Main_iPad.storyboard */,
@@ -236,9 +255,9 @@
 				A6ADE03919B8AEF7006345C2 /* CodeCell.m */,
 				A6ADE03A19B8AEF7006345C2 /* en.lproj */,
 				A6ADE03F19B8AEF7006345C2 /* Images.xcassets */,
-				A6ADE04019B8AEF7006345C2 /* KXAppDelegate.h */,
 				A6FE77A519B8B8CA009CDD24 /* KXToast.h */,
 				A6FE77A619B8B8CA009CDD24 /* KXToast.m */,
+				A6ADE04019B8AEF7006345C2 /* KXAppDelegate.h */,
 				A6ADE04119B8AEF7006345C2 /* KXAppDelegate.m */,
 				A6FE77B719B91BE6009CDD24 /* controller */,
 				A6ADE04619B8AEF7006345C2 /* KXCode.h */,
@@ -275,8 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				A6FE77B419B91BA1009CDD24 /* KXLicenseViewController.h */,
-				A6FE77BE19B927E8009CDD24 /* OverlayView.h */,
-				A6FE77BF19B927E8009CDD24 /* OverlayView.m */,
 				A6FE77B519B91BA2009CDD24 /* KXLicenseViewController.m */,
 				A6FE77BA19B91D41009CDD24 /* KXAboutController.h */,
 				A6FE77BB19B91D41009CDD24 /* KXAboutController.m */,
@@ -414,7 +431,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A60560B319B9BABE006C4323 /* SVProgressHUD.bundle in Resources */,
 				A6ADE05119B8AEF7006345C2 /* Main_iPad.storyboard in Resources */,
+				A6FE77C619B92C68009CDD24 /* OverlayView.xib in Resources */,
 				A6ADE05619B8AEF7006345C2 /* Images.xcassets in Resources */,
 				A6ADE05419B8AEF7006345C2 /* InfoPlist.strings in Resources */,
 				A6FE77B919B91C0D009CDD24 /* license.html in Resources */,
@@ -437,8 +456,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6ADE05D19B8AEF7006345C2 /* main.m in Sources */,
-				A6FE77C019B927E8009CDD24 /* OverlayView.m in Sources */,
 				A6ADE05A19B8AEF7006345C2 /* KXCode.m in Sources */,
+				A60560B419B9BABE006C4323 /* SVProgressHUD.m in Sources */,
 				A6ADE05C19B8AEF7006345C2 /* KXSelectionController.m in Sources */,
 				A6FE77AE19B8F3F0009CDD24 /* KXRectView.m in Sources */,
 				A6ADE05B19B8AEF7006345C2 /* KXScanController.m in Sources */,

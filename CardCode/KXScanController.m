@@ -48,7 +48,7 @@ BOOL _hasFinished;
         withFormat:(ZXBarcodeFormat) format {
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
     
-    BOOL isPresent = [KXAppDelegate fetchItem:@"KXCode"
+    BOOL isPresent = [KXAppDelegate checkItem:@"KXCode"
                                 WithAttribute:@"barcodeText"
                                    AndContext:_context
                                       equalTo:text];

@@ -19,13 +19,6 @@
     return self;
 }
 
-- (IBAction)deleteButtonPressed:(id)sender {
-    
-    
-    
-    
-}
-
 - (void)setTextLabel:(NSString*)text {
     [self.text setText:text];
 }

@@ -25,6 +25,8 @@
         self.font = [UIFont fontWithName: @"Helvetica-Bold" size: 20];
         self.text = msg;
         self.numberOfLines = 2;
+        self.textAlignment = NSTextAlignmentCenter;
+
         self.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         
         
@@ -46,10 +48,10 @@
 
         CGSize expectedLabelSize = textRect.size;//[self.text sizeWithFont:self.font constrainedToSize:maximumLabelSize lineBreakMode: NSLineBreakByTruncatingTail];
         
-        expectedLabelSize = CGSizeMake(expectedLabelSize.width + 20, expectedLabelSize.height + 10);
+        expectedLabelSize = CGSizeMake(expectedLabelSize.width + 40, expectedLabelSize.height + 20);
         
         self.frame = CGRectMake(parent.center.x - expectedLabelSize.width / 2,
-                                parent.bounds.size.height - 3 * expectedLabelSize.height / 2,
+                                parent.center.y - expectedLabelSize.height / 2,
                                 expectedLabelSize.width,
                                 expectedLabelSize.height);
         

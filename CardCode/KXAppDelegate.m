@@ -21,7 +21,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -65,7 +65,7 @@
         [fileManager createDirectoryAtURL:applicationSupportURL withIntermediateDirectories:NO attributes:nil error:nil];
         NSString *dbName = NSBundle.mainBundle.infoDictionary [@"CFBundleDisplayName"];
         NSURL *databaseURL = [applicationSupportURL URLByAppendingPathComponent:[dbName stringByAppendingString: @".sqlite"]];
-
+        
         NSError *error = nil;
         
         NSPersistentStore *store = [coordinator
@@ -126,20 +126,40 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsToRegister];
 }
 
++(NSArray*) fetchItem:(NSString*) entityName
+        WithAttribute:(NSString*) attribute
+           AndContext:(NSManagedObjectContext *)managedObjectContext
+              equalTo:(NSString*) item
+{
+    NSLog(@"%s - START - id: %@", __PRETTY_FUNCTION__, item);
 
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    [request setPredicate:[NSPredicate  predicateWithFormat:@"%K = %@", attribute, item]];
+    
+    NSError *error;
+    NSArray *array = [managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (array == nil)
+    {
+        NSLog(@"%s - STOP error", __PRETTY_FUNCTION__);
+    }
+    NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
 
-+ (BOOL) fetchItem:(NSString*) entityName
-         WithAttribute:(NSString*) attribute
-            AndContext:(NSManagedObjectContext *)managedObjectContext
-               equalTo:(NSString*) item
+    return array;
+}
+
++ (BOOL) checkItem:(NSString*) entityName
+     WithAttribute:(NSString*) attribute
+        AndContext:(NSManagedObjectContext *)managedObjectContext
+           equalTo:(NSString*) item
 {
     NSLog(@"%s - START - id: %@", __PRETTY_FUNCTION__, item);
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
-
+    
     [request setPredicate:[NSPredicate  predicateWithFormat:@"%K = %@", attribute, item]];
     [request setFetchLimit:1];
-
+    
     NSLog(@"%s - START - descr: %@", __PRETTY_FUNCTION__, [request.predicate description]);
     
     ;
@@ -147,6 +167,7 @@
     NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
     
     NSUInteger count = [managedObjectContext countForFetchRequest:request error:&error];
+    
     if (count == NSNotFound ||
         count == 0) {
         return FALSE;

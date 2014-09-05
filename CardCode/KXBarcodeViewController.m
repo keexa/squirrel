@@ -38,18 +38,18 @@ NSManagedObjectContext* _context;
            withData:(NSData*)data {
     UIImage *image = [UIImage imageWithData:data];
     NSLog(@"%s - %f %f", __PRETTY_FUNCTION__, image.size.width, image.size.height);
-    
-    [button setImage:image forState:UIControlStateNormal];
-    
     button.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    
+    UIImage *thumbnail = [UIImage imageWithCGImage:image.CGImage
+                                             scale:0.2
+                                       orientation:image.imageOrientation];
+    [button setImage:thumbnail forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
-
     [super viewWillAppear:animated];
+    
     if (self.barcode.barcodeData) {
         [self prepareButton:self.barcodeButton withData:self.barcode.barcodeData];
     }
@@ -95,23 +95,7 @@ NSManagedObjectContext* _context;
     
     if ([segue.identifier isEqualToString:@"displayImage"]) {
         KXBarcodeDisplayController* barcodeBrowseViewController = [segue destinationViewController];
-        NSData* imageData;
-        
-        switch (_indexPhoto) {
-            case BARCODE_PICTURE:
-                imageData = self.barcode.barcodeData;
-                break;
-            case CARD1_PICTURE:
-                imageData = self.barcode.picture1;
-                break;
-            case CARD2_PICTURE:
-                imageData = self.barcode.picture2;
-                break;
-            default:
-                break;
-        }
-        UIImage* image = [UIImage imageWithData:imageData];
-        [barcodeBrowseViewController setCurrentCode:self.barcode];
+         [barcodeBrowseViewController setBarcodeText:self.barcode.barcodeText];
         [barcodeBrowseViewController setIndexPhoto:_indexPhoto];
         NSLog(@"%s - segue", __PRETTY_FUNCTION__);
     }

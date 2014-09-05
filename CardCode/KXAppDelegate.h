@@ -13,10 +13,16 @@
 @property (strong, nonatomic) UIWindow *window;
 + (NSManagedObjectContext *)managedObjectContext ;
 + (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
-+ (BOOL) fetchItem:(NSString*) entityName
++ (BOOL) checkItem:(NSString*) entityName
          WithAttribute:(NSString*) attribute
             AndContext:(NSManagedObjectContext *)managedObjectContext
                equalTo:(NSString*) item;
+
++(NSArray*) fetchItem:(NSString*) entityName
+        WithAttribute:(NSString*) attribute
+           AndContext:(NSManagedObjectContext *)managedObjectContext
+              equalTo:(NSString*) item;
+
 + (BOOL) saveWithContext:(NSManagedObjectContext *)managedObjectContext;
 + (void) deleteItemsInArray: (NSArray *) arrayItems
                 withContext:(NSManagedObjectContext *)managedObjectContext;

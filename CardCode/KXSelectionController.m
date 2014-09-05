@@ -20,6 +20,8 @@ NSArray* _pictures;
 NSArray* _codes;
 NSManagedObjectContext* _context;
 NSInteger _numberOfColumns;
+CodeCell* _currentCell;
+
 - (void)viewDidLoad
 {
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
@@ -54,18 +56,15 @@ NSInteger _numberOfColumns;
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
-    
+
     if (!self.currentCode) {
         _numberOfColumns = 2;
         [self initGUI];
-        // Do any additional setup after loading the view, typically from a nib.
     }
 }
 
-
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
 {
-    
     CGPoint p = [gestureRecognizer locationInView:self.collectionView];
     
     NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:p];
@@ -94,10 +93,8 @@ NSInteger _numberOfColumns;
             
         }];
         [cell.deleteButton setHidden:NO];
-
     }
 }
-
 
 - (IBAction)deleteButtonPressed:(id)sender forEvent:(UIEvent *)event {
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
@@ -111,7 +108,7 @@ NSInteger _numberOfColumns;
     NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint: currentTouchPosition];
 
    
-    UICollectionViewCell* cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+    CodeCell* cell = (CodeCell*)[self.collectionView cellForItemAtIndexPath:indexPath];
     
     if (indexPath == nil){
         NSLog(@"couldn't find index path");
@@ -119,7 +116,7 @@ NSInteger _numberOfColumns;
         [cell.layer removeAllAnimations];
     }
     self.currentCode = [_codes objectAtIndex:indexPath.row];
-    
+    _currentCell = cell;
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
                                                     cancelButtonTitle:@"No, let's keep it"
@@ -136,6 +133,9 @@ NSInteger _numberOfColumns;
                               withContext:_context];
         [KXAppDelegate saveWithContext:_context];
         [self initGUI];
+        [self.collectionView reloadData];
+    } else {
+        [_currentCell.deleteButton setHidden:YES];
     }
 }
 
@@ -176,7 +176,8 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     self.currentCode = [_codes objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"startBarcodeController" sender:self];
-    
+    UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
+    [cell.layer removeAllAnimations]; 
     NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
 }
 
@@ -218,7 +219,7 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell* cell = [collectionView cellForItemAtIndexPath:indexPath];
     [cell.layer setBorderColor: UIColorFromRGB(0xd04def).CGColor];
-    [cell.layer setBorderWidth:2.0f];
+    [cell.layer setBorderWidth:3.0f];
     
 }
 
@@ -247,6 +248,9 @@ didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView dequeueReusableCellWithReuseIdentifier: @"Cell"
                                               forIndexPath:indexPath];
     [cell.layer setCornerRadius:15];
+    [cell.layer removeAllAnimations];
+    [cell.deleteButton setHidden:YES];
+    cell.image.bounds = CGRectMake(5, 5, cell.bounds.size.width - 10, cell.bounds.size.height - 10);
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void){
         
@@ -273,8 +277,8 @@ didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     
     NSInteger width = (collectionView.bounds.size.width - widthRemove - borderWidth * 2) / _numberOfColumns;
     ;
-    NSInteger height = width * 0.7;
-    
+    NSInteger height = width * 0.8;
+
     CGSize retval = CGSizeMake(width, height);
     return retval;
 }

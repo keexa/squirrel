@@ -9,6 +9,7 @@
 #import "KXBarcodeDisplayController.h"
 #import "KXAppDelegate.h"
 #import "KXToast.h"
+#import "SVProgressHUD.h"
 
 @interface KXBarcodeDisplayController ()
 
@@ -25,97 +26,60 @@ NSData* _imgData;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
     if (self) {
-        // Custom initialization
     }
     return self;
 }
+-(BOOL)prefersStatusBarHidden { return YES; }
+
 -(void) prepareImage {
-    UIImage* image;
+    NSLog(@"%s - START - indexPhoto %d", __PRETTY_FUNCTION__, _indexPhoto);
+
     switch (_indexPhoto) {
         case BARCODE_PICTURE:
             _imgData = self.currentCode.barcodeData;
-            [self.bottomView setHidden:YES];
-            [self.descriptionLabel setText:@"Your barcode"];
+            [self.toolbar setHidden:YES];
+            [self.titleToolbar setTitle:@"Your barcode"];
             break;
         case CARD1_PICTURE:
             _imgData = self.currentCode.picture1;
-            [self.bottomView setHidden:NO];
-            [self.descriptionLabel setText:@"Front picture"];
+            [self.toolbar setHidden:NO];
+            [self.titleToolbar setTitle:@"Front picture"];
             break;
         case CARD2_PICTURE:
             _imgData = self.currentCode.picture2;
-            [self.bottomView setHidden:NO];
-            [self.descriptionLabel setText:@"Back picture"];
+            [self.toolbar setHidden:NO];
+            [self.titleToolbar setTitle:@"Back picture"];
             break;
             
         default:
             break;
     }
-    image = [UIImage imageWithData:_imgData];
+    UIImage* image = [UIImage imageWithData:_imgData];
+    
     if (image.size.width > image.size.height) {
-        UIImage * rotImage = [[UIImage alloc] initWithCGImage: image.CGImage
-                                                        scale: 1.0
-                                                  orientation: UIImageOrientationRight];
-        [self.imageView setImage:rotImage];
-        
-    } else {
-        [self.imageView setImage:image];
+        image = [[UIImage alloc] initWithCGImage:image.CGImage
+                                           scale:1.0
+                                     orientation:UIImageOrientationRight];
     }
-    // self.imageView.transform = CGAffineTransformMakeRotation(M_PI/2);
+    [self.imageView setImage:image];
     
+    NSLog(@"%s - STOP - imageData length %d %f %f", __PRETTY_FUNCTION__, [_imgData length], image.size.width, image.size.height);
 }
-
--(void) prepareCamera {
-    UIToolbar* toolBar=[[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-54, self.view.frame.size.width, 55)];
-    
-    toolBar.barStyle =  UIBarStyleBlackOpaque;
-    NSArray *items=[NSArray arrayWithObjects:
-                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel  target:self action:@selector(cancelPicture)],
-                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace  target:nil action:nil],
-                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera  target:self action:@selector(shootPicture)],
-                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace  target:nil action:nil],
-                    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace  target:nil action:nil],
-                    nil];
-    [toolBar setItems:items];
-    
-    // create the overlay view
-    OverlayView* overlayView = [[OverlayView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-44)];
-    
-    // important - it needs to be transparent so the camera preview shows through!
-    overlayView.opaque=NO;
-    overlayView.backgroundColor=[UIColor clearColor];
-    
-    // parent view for our overlay
-    UIView *cameraView=[[UIView alloc] initWithFrame:self.view.bounds];
-    [cameraView addSubview:overlayView];
-    [cameraView addSubview:toolBar];
-    
-    imagePickerController = [[UIImagePickerController alloc] init];
-    
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO){
-        NSLog(@"Camera not available");
-        return;
-    }
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    imagePickerController.delegate = self;
-    
-    // hide the camera controls
-    imagePickerController.showsCameraControls=NO;
-    imagePickerController.wantsFullScreenLayout = YES;
-    [imagePickerController setCameraOverlayView:cameraView];
-    
-    [self presentViewController:imagePickerController animated:YES completion:nil];
-
-
-}
-
 
 - (void)viewDidLoad
 {
+    NSLog(@"%s - START", __PRETTY_FUNCTION__);
     [super viewDidLoad];
     _picker = [[UIImagePickerController alloc] init];
     _context = [KXAppDelegate managedObjectContext];
+    
+    NSArray* array = [KXAppDelegate fetchItem:@"KXCode"
+                                WithAttribute:@"barcodeText"
+                                   AndContext:_context
+                                      equalTo:self.barcodeText];
+    self.currentCode = [array firstObject];
     
     if (_indexPhoto == BARCODE_PICTURE) {
         [self.view addSubview: [[KXToast alloc] initWithText: @"Double tap to go back!"]];
@@ -124,6 +88,8 @@ NSData* _imgData;
         tapGesture.numberOfTapsRequired = 2;
         [self.view addGestureRecognizer:tapGesture];
     }
+    
+    NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
 }
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)sender {
@@ -133,33 +99,30 @@ NSData* _imgData;
     }
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return YES;
-}
-
 - (void)viewWillDisappear:(BOOL)animated  {
     [super viewWillDisappear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
-    [self prepareImage];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-
+    [self prepareImage];
+    
+    
     NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
+    
+    
+    
     if (_imgData == nil) {
         [self cameraButtonPressed:self];
-    } else {
-        
-        // Do any additional setup after loading the view.
     }
-    
     NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
 }
 
@@ -170,19 +133,8 @@ NSData* _imgData;
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
-
-+ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize
+{
     //UIGraphicsBeginImageContext(newSize);
     // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
     // Pass 1.0 to force exact pixel size.
@@ -315,53 +267,63 @@ NSData* _imgData;
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
+    UIView* view = [picker.view snapshotViewAfterScreenUpdates:YES];
+    [picker.view addSubview:view];
+    [picker.view bringSubviewToFront:view];
     
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    NSLog(@"%s - %f %f", __PRETTY_FUNCTION__, image.size.width, image.size.height);
-    
-    UIImage* scaledImage = [self scaleAndRotateImage:image];
-    [self.imageView setImage:scaledImage];
-    NSData *imageData = UIImageJPEGRepresentation(scaledImage, 0.8f);
-    
-    
-    switch (_indexPhoto) {
-        case BARCODE_PICTURE:
-            //  [self.barcode setBarcodeData:imageData];
-            // [self.barcodeButton setBackgroundImage:scaledImage forState:UIControlStateNormal];
-            break;
-        case CARD1_PICTURE:
-            [self.currentCode setPicture1:imageData];
-            break;
-        case CARD2_PICTURE:
-            [self.currentCode setPicture2:imageData];
-            
-            break;
-            
-        default:
-            break;
-    }
-    
-    [KXAppDelegate saveWithContext:_context];
-    [self prepareImage];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [SVProgressHUD show];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        UIImage* scaledImage = [self scaleAndRotateImage:image];
+        NSData *imageData = UIImageJPEGRepresentation(scaledImage, 0.8f);
+        
+        switch (_indexPhoto) {
+            case CARD1_PICTURE:
+                [self.currentCode setPicture1:imageData];
+                break;
+            case CARD2_PICTURE:
+                [self.currentCode setPicture2:imageData];
+                break;
+            default:
+                break;
+        }
+        
+        [KXAppDelegate saveWithContext:_context];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [view removeFromSuperview];
+        });
+    });
     NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
-    
 }
 
 - (IBAction)cameraButtonPressed:(id)sender {
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
-    
     _picker.delegate = self;
     _picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     _picker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+    _picker.showsCameraControls = NO;
     
-    _picker.showsCameraControls = YES;
+    _picker.cameraOverlayView = self.overlayView;
+    
+    [[NSBundle mainBundle] loadNibNamed:@"OverlayView" owner:self options:nil];
+    self.overlayView.frame = _picker.cameraOverlayView.frame;
+    _picker.cameraOverlayView = self.overlayView;
+    //self.overlayView = nil;
+    
     [self presentViewController:_picker animated:YES
-                     completion:^ {
-                         [_picker takePicture];
-                     }];
+                     completion:nil];
     NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
+}
+
+- (IBAction)cancelButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)takePicturePressed:(id)sender {
+    [_picker takePicture];
 }
 
 - (IBAction)okButtonPressed:(id)sender {
@@ -370,8 +332,11 @@ NSData* _imgData;
 
 -(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
-    // return which subview we want to zoom
     return self.imageView;
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 
