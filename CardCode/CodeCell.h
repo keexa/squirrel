@@ -12,7 +12,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView *image;
 @property (nonatomic, strong) IBOutlet UILabel *text;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
-- (IBAction)deleteButtonPressed:(id)sender;
 
 - (void)setTextLabel:(NSString*)text;
 - (void)setCodeImage:(UIImage*)image;

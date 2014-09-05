@@ -43,7 +43,6 @@
 						<string key="NSFrame">{{0, 524}, {320, 44}}</string>
 						<reference key="NSSuperview" ref="668506845"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -75,6 +74,7 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="249500637"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
+				<int key="IBUIContentMode">1</int>
 				<object class="IBUIScreenMetrics" key="IBUISimulatedDestinationMetrics">
 					<string key="IBUISimulatedSizeMetricsClass">IBUIScreenMetrics</string>
 					<object class="NSMutableDictionary" key="IBUINormalizedOrientationToSizeMap">
@@ -230,13 +230,13 @@
 						<reference key="parent" ref="249500637"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">38</int>
-						<reference key="object" ref="55889491"/>
+						<int key="objectID">39</int>
+						<reference key="object" ref="406364885"/>
 						<reference key="parent" ref="668506845"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">39</int>
-						<reference key="object" ref="406364885"/>
+						<int key="objectID">38</int>
+						<reference key="object" ref="55889491"/>
 						<reference key="parent" ref="668506845"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -271,7 +271,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">47</int>
+			<int key="maxID">55</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -304,7 +304,8 @@
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="imageView">UIImageView</string>
-						<string key="overlayView">UIView</string>
+						<string key="overlayView">UIImageView</string>
+						<string key="scrollView">UIScrollView</string>
 						<string key="titleToolbar">UIBarButtonItem</string>
 						<string key="toolbar">UIToolbar</string>
 					</dictionary>
@@ -315,7 +316,11 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="overlayView">
 							<string key="name">overlayView</string>
-							<string key="candidateClassName">UIView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="scrollView">
+							<string key="name">scrollView</string>
+							<string key="candidateClassName">UIScrollView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="titleToolbar">
 							<string key="name">titleToolbar</string>
