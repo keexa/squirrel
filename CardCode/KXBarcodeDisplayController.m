@@ -34,28 +34,38 @@ NSData* _imgData;
 -(BOOL)prefersStatusBarHidden { return YES; }
 
 -(void) prepareImage {
-    NSLog(@"%s - START - indexPhoto %d", __PRETTY_FUNCTION__, _indexPhoto);
+    NSLog(@"%s - START", __PRETTY_FUNCTION__);
 
     switch (_indexPhoto) {
         case BARCODE_PICTURE:
             _imgData = self.currentCode.barcodeData;
             [self.toolbar setHidden:YES];
             [self.titleToolbar setTitle:@"Your barcode"];
+            self.scrollView.zoomScale = 0.5;
+            self.scrollView.maximumZoomScale = 1.0;
+
             break;
         case CARD1_PICTURE:
             _imgData = self.currentCode.picture1;
             [self.toolbar setHidden:NO];
             [self.titleToolbar setTitle:@"Front picture"];
+            self.scrollView.zoomScale = 1.0;
+            self.scrollView.maximumZoomScale = 4.0;
+
             break;
         case CARD2_PICTURE:
             _imgData = self.currentCode.picture2;
             [self.toolbar setHidden:NO];
             [self.titleToolbar setTitle:@"Back picture"];
+            self.scrollView.zoomScale = 1.0;
+            self.scrollView.maximumZoomScale = 4.0;
+
             break;
             
         default:
             break;
     }
+
     UIImage* image = [UIImage imageWithData:_imgData];
     
     if (image.size.width > image.size.height) {
@@ -64,8 +74,12 @@ NSData* _imgData;
                                      orientation:UIImageOrientationRight];
     }
     [self.imageView setImage:image];
-    
-    NSLog(@"%s - STOP - imageData length %d %f %f", __PRETTY_FUNCTION__, [_imgData length], image.size.width, image.size.height);
+    //[self.scrollView setContentMode:UIViewContentModeScaleAspectFit];
+    //[self.imageView sizeToFit];
+    //[self.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    //[self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
+
+    NSLog(@"%s - STOP - imageData length  %f %f", __PRETTY_FUNCTION__,image.size.width, image.size.height);
 }
 
 - (void)viewDidLoad
@@ -329,6 +343,19 @@ NSData* _imgData;
 - (IBAction)okButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    UIView *subView = [scrollView.subviews objectAtIndex:0];
+    
+    CGFloat offsetX = MAX((scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5, 0.0);
+    CGFloat offsetY = MAX((scrollView.bounds.size.height - scrollView.contentSize.height) * 0.5, 0.0);
+    
+    subView.center = CGPointMake(scrollView.contentSize.width * 0.5 + offsetX,
+                                 scrollView.contentSize.height * 0.5 + offsetY);
+}
+
 
 -(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView
 {

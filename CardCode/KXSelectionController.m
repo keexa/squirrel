@@ -315,7 +315,7 @@ didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
             codeData = code.barcodeData;
         }
         
-        UIImage* origImg = [UIImage imageWithData:codeData];
+        UIImage* origImg = [UIImage imageWithData:codeData scale:4.0];
         
         [pictures addObject:origImg];
     }

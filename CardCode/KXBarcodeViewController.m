@@ -34,16 +34,6 @@ NSManagedObjectContext* _context;
     _context = [KXAppDelegate managedObjectContext];
 }
 
-- (void) prepareButton:(UIButton*)button
-           withData:(NSData*)data {
-    UIImage *image = [UIImage imageWithData:data];
-    NSLog(@"%s - %f %f", __PRETTY_FUNCTION__, image.size.width, image.size.height);
-    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    UIImage *thumbnail = [UIImage imageWithCGImage:image.CGImage
-                                             scale:0.2
-                                       orientation:image.imageOrientation];
-    [button setImage:thumbnail forState:UIControlStateNormal];
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -51,18 +41,30 @@ NSManagedObjectContext* _context;
     [super viewWillAppear:animated];
     
     if (self.barcode.barcodeData) {
-        [self prepareButton:self.barcodeButton withData:self.barcode.barcodeData];
+        UIImage *thumbnail = [UIImage imageWithData:self.barcode.barcodeData scale:2.0];
+        self.barcodeButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.barcodeButton setImage:thumbnail forState:UIControlStateNormal];
+        NSLog(@"%s - %f %f", __PRETTY_FUNCTION__, thumbnail.size.width, thumbnail.size.height);
+
     }
     
     if (self.barcode.picture1) {
-        [self prepareButton:self.card1Button withData:self.barcode.picture1];
+        UIImage *thumbnail = [UIImage imageWithData:self.barcode.picture1 scale:5.0];
+        self.card1Button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.card1Button setImage:thumbnail forState:UIControlStateNormal];
+        NSLog(@"%s - %f %f", __PRETTY_FUNCTION__, thumbnail.size.width, thumbnail.size.height);
+
     }
     
     if (self.barcode.picture2) {
-        [self prepareButton:self.card2Button withData:self.barcode.picture2];
+        UIImage *thumbnail = [UIImage imageWithData:self.barcode.picture2 scale:5.0];
+        self.card2Button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.card2Button setImage:thumbnail forState:UIControlStateNormal];
+        NSLog(@"%s - %f %f", __PRETTY_FUNCTION__, thumbnail.size.width, thumbnail.size.height);
+
     }
-    
-    [self.barcodeLabel setText:@"Your barcode"];
+    NSString* barcode = [NSString stringWithFormat:@"Your barcode: %@", self.barcode.barcodeText];
+    [self.barcodeLabel setText:barcode];
     NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
 }
 

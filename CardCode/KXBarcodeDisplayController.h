@@ -25,5 +25,6 @@
 - (IBAction)takePicturePressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *titleToolbar;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end

@@ -13,6 +13,4 @@
                        Green:(CGFloat)green
                         Blue:(CGFloat)blue;
 
--(void)deleteButtonPressed:(id)sender forEvent:(UIEvent *)event;
-
 @end

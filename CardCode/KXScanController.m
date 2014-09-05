@@ -26,7 +26,7 @@ BOOL _hasFinished;
 
 
 -(int)getCorrectHeightWith:(int)width
-                andFormat:(ZXBarcodeFormat)format {
+                 andFormat:(ZXBarcodeFormat)format {
     switch (format) {
         case kBarcodeFormatAztec:
         case kBarcodeFormatDataMatrix:
@@ -37,10 +37,10 @@ BOOL _hasFinished;
             
         default:
             return width / 2;
-
+            
             break;
     }
-  
+    
 }
 
 
@@ -48,39 +48,42 @@ BOOL _hasFinished;
         withFormat:(ZXBarcodeFormat) format {
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
     
-    BOOL isPresent = [KXAppDelegate checkItem:@"KXCode"
-                                WithAttribute:@"barcodeText"
-                                   AndContext:_context
-                                      equalTo:text];
-    if (!isPresent) {
-        _currentCode = [NSEntityDescription insertNewObjectForEntityForName:@"KXCode"
-                                                     inManagedObjectContext: _context];
-        [_currentCode setBarcodeText:text];
-        
-        
-        NSError *error = nil;
-        ZXMultiFormatWriter *writer = [ZXMultiFormatWriter writer];
-        int width = 600;
-        int height = [self getCorrectHeightWith:width andFormat:format];
-        ZXBitMatrix* result = [writer encode:text
+    _currentCode = [NSEntityDescription insertNewObjectForEntityForName:@"KXCode"
+                                                 inManagedObjectContext: _context];
+    [_currentCode setBarcodeText:text];
+    
+    NSError *error = nil;
+    ZXMultiFormatWriter *writer = [ZXMultiFormatWriter writer];
+    int width = 600;
+    int height = [self getCorrectHeightWith:width andFormat:format];
+    ZXBitMatrix* result;
+    @try {
+        result = [writer encode:text
                                       format:format
                                        width:width
                                       height:height
                                        error:&error];
-        if (result) {
-            CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage];
-            UIImage* myImage = [[UIImage alloc] initWithCGImage:image];
-            NSData *imageData = UIImagePNGRepresentation(myImage);
-            [_currentCode setBarcodeData:imageData];
-            [KXAppDelegate saveWithContext:_context];
-        } else {
-            NSString *errorMessage = [error localizedDescription];
-        }
-        return TRUE;
-    } else {
+    }
+    
+    @catch ( NSException *e ) {
+        NSString *errorMessage = [error localizedDescription];
+        NSLog(@"%s - error encoder%@", __PRETTY_FUNCTION__, errorMessage);
         return FALSE;
     }
-    NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
+
+    if (result) {
+        CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage];
+        UIImage* myImage = [[UIImage alloc] initWithCGImage:image];
+        NSData *imageData = UIImagePNGRepresentation(myImage);
+        [_currentCode setBarcodeData:imageData];
+        [KXAppDelegate saveWithContext:_context];
+        NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
+        return TRUE;
+    } else {
+        NSString *errorMessage = [error localizedDescription];
+        NSLog(@"%s - error %@", __PRETTY_FUNCTION__, errorMessage);
+        return FALSE;
+    }
 }
 
 +(NSString*) encodeToPercentEscapeString:(NSString *) unencodedString {
@@ -102,37 +105,55 @@ BOOL _hasFinished;
         
     }
     [self.scanRectView setColorRectangleRed:0.0 Green:1.0 Blue:0.0];
-
-    BOOL inserted = [self insertCode:result.text
-                          withFormat:result.barcodeFormat];
     
+    BOOL isPresent = [KXAppDelegate checkItem:@"KXCode"
+                                WithAttribute:@"barcodeText"
+                                   AndContext:_context
+                                      equalTo:result.text];
+    BOOL inserted = NO;
+    
+    if (!isPresent) {
+        inserted = [self insertCode:result.text
+                         withFormat:result.barcodeFormat];
+    }
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void){
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (inserted) {
-                [self.capture stop];
-                self.capture.delegate = nil;
+            [self.capture stop];
+            self.capture.delegate = nil;
+
+            if (!isPresent && inserted) {
+                
                 [self.navigationController popViewControllerAnimated:YES];
                 _hasFinished = TRUE;
             } else {
-                [self.capture stop];
-                //[self.capture.layer removeFromSuperlayer];
-                self.capture.delegate = nil;
-
-                [self.decodedLabel setText:@"Barcode already present!"];
                 [self.scanRectView setColorRectangleRed:0.0 Green:1.0 Blue:0.0];
                 [self.scanRectView setNeedsDisplay];
-                UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Your barcode is already in the phone"
-                                                                         delegate:self
-                                                                cancelButtonTitle:nil
-                                                           destructiveButtonTitle:nil
-                                                                otherButtonTitles:@"Try again!",nil];
+                UIActionSheet *actionSheet;
+                
+                if (!isPresent && !inserted) {
+                    [self.decodedLabel setText:@"Error in decoding barcode!"];
+                    actionSheet= [[UIActionSheet alloc] initWithTitle:@"There was an issue in decoding your barcode"
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Try again!",nil];
+                    
+                } else {
+                    [self.decodedLabel setText:@"Barcode already present!"];
+                    actionSheet = [[UIActionSheet alloc] initWithTitle:@"Your barcode is already in the phone"
+                                                              delegate:self
+                                                     cancelButtonTitle:nil
+                                                destructiveButtonTitle:nil
+                                                     otherButtonTitles:@"Try again!",nil];
+                    
+                }
                 [actionSheet showInView:self.view];
             }
-                //[self.navigationController popViewControllerAnimated:YES];
-                
+            //[self.navigationController popViewControllerAnimated:YES];
+            
             
         });
     });
@@ -146,13 +167,13 @@ BOOL _hasFinished;
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
-
+    
     [self initCapture];
     if (actionSheet.cancelButtonIndex != buttonIndex) {
-
+        
     }
     NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
-
+    
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
@@ -198,10 +219,10 @@ BOOL _hasFinished;
     self.capture = [[ZXCapture alloc] init];
     self.capture.camera = self.capture.back;
     self.capture.focusMode = AVCaptureFocusModeContinuousAutoFocus;
-    self.capture.rotation = 90.0f;
+    self.capture.rotation = 180.0f;
     
     [self.view.layer addSublayer:self.capture.layer];
-
+    
     NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
 }
 
@@ -213,16 +234,16 @@ BOOL _hasFinished;
     [self.view bringSubviewToFront:self.scanRectView];
     [self.view bringSubviewToFront:self.decodedLabel];
     [self.scanRectView setNeedsDisplay];
-
-    //self.capture.scanRect =  self.scanRectView.bounds;// CGRectMake(0,0, 300, 200);
-
+    
+   // self.capture.scanRect =  self.scanRectView.bounds;// CGRectMake(0,0, 300, 200);
+    
     if (![self.capture running]) {
         [self.capture start];
     }
     
     
     [self.labelText setText:@"Scan your barcode here!"];
-
+    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -230,7 +251,7 @@ BOOL _hasFinished;
     _hasFinished = FALSE;
     [self initCapture];
     //CGAffineTransform captureSizeTransform = CGAffineTransformMakeScale(320 / self.view.frame.size.width, 480 / self.view.frame.size.height);
-    self.capture.scanRect = self.view.frame;//CGRectApplyAffineTransform(self.scanRectView.frame, captureSizeTransform);
+    //self.capture.scanRect = self.view.frame;//CGRectApplyAffineTransform(self.scanRectView.frame, captureSizeTransform);
     NSLog(@"%f %f", self.view.frame.size.width, self.view.frame.size.height);
     NSLog(@"%f %f", self.capture.scanRect.size.width, self.capture.scanRect.size.height);
     
