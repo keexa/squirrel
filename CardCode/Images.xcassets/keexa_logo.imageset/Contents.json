@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "keexa_logo-1.png"
+      "filename" : "keexa_alpha-1.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "keexa_logo.png"
+      "filename" : "keexa_alpha@2x.png"
     }
   ],
   "info" : {

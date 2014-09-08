@@ -375,7 +375,7 @@
     <resources>
         <image name="cancel" width="32" height="32"/>
         <image name="info" width="16" height="16"/>
-        <image name="keexa_logo" width="600" height="165"/>
+        <image name="keexa_logo" width="216" height="64"/>
         <image name="plus" width="64" height="64"/>
         <image name="plus_white" width="64" height="64"/>
         <image name="second" width="30" height="30"/>
