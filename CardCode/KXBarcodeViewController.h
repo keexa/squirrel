@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *card1Button;
 @property (weak, nonatomic) IBOutlet UIButton *card2Button;
 @property (weak, nonatomic) IBOutlet UILabel *barcodeLabel;
-@property (nonatomic, weak) KXCode* barcode;
+@property (nonatomic, strong) KXCode* barcode;
 
 - (IBAction)barcodeTouched:(id)sender;
 - (IBAction)card1Touched:(id)sender;

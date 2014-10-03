@@ -10,18 +10,14 @@
 #import "KXCode.h"
 #import "KXRectView.h"
 
-@protocol SecondDelegate <NSObject>
--(void) secondViewControllerDismissed:(KXCode*)code;
-@end
 
+@interface KXScanController : UIViewController <ZXCaptureDelegate,  UIActionSheetDelegate>
 
-@interface KXScanController : UIViewController <ZXCaptureDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
-
-@property (weak, nonatomic) IBOutlet UILabel *labelText;
-@property (nonatomic, strong) ZXCapture *capture;
+@property (nonatomic, weak) IBOutlet UILabel *labelText;
 @property (nonatomic, weak) IBOutlet KXRectView *scanRectView;
 @property (nonatomic, weak) IBOutlet UILabel *decodedLabel;
-@property (nonatomic, weak) id<SecondDelegate> myDelegate;
+
+@property (nonatomic, strong) ZXCapture *capture;
 
 @end
 

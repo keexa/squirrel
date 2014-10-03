@@ -48,9 +48,6 @@ BOOL _hasFinished;
         withFormat:(ZXBarcodeFormat) format {
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
     
-    _currentCode = [NSEntityDescription insertNewObjectForEntityForName:@"KXCode"
-                                                 inManagedObjectContext: _context];
-    [_currentCode setBarcodeText:text];
     
     NSError *error = nil;
     ZXMultiFormatWriter *writer = [ZXMultiFormatWriter writer];
@@ -72,6 +69,10 @@ BOOL _hasFinished;
     }
 
     if (result) {
+        _currentCode = [NSEntityDescription insertNewObjectForEntityForName:@"KXCode"
+                                                     inManagedObjectContext: _context];
+        [_currentCode setBarcodeText:text];
+
         CGImageRef image = [[ZXImage imageWithMatrix:result] cgimage];
         UIImage* myImage = [[UIImage alloc] initWithCGImage:image];
         NSData *imageData = UIImagePNGRepresentation(myImage);
@@ -97,13 +98,34 @@ BOOL _hasFinished;
     return encodedString;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
+    NSLog(@"%s - START", __PRETTY_FUNCTION__);
+    
+    if ([segue.identifier isEqualToString:@"startBarcodeController"]) {
+        NSLog(@"%s - segue", __PRETTY_FUNCTION__);
+        KXBarcodeViewController *barcodeViewController = [segue destinationViewController];
+        [barcodeViewController setBarcode:_currentCode];
+        _currentCode = nil;
+    }
+    NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
+}
+
+
 - (void)captureResult:(ZXCapture *)capture result:(ZXResult *)result {
     NSLog(@"%s - START, %@", __PRETTY_FUNCTION__, result);
     
+    if (_hasFinished) {
+        return;
+    }
+    _hasFinished = YES;
+    [self.capture stop];
+    self.capture.delegate = nil;
+
     if (!result) {
         return;
-        
     }
+    
     [self.scanRectView setColorRectangleRed:0.0 Green:1.0 Blue:0.0];
     
     BOOL isPresent = [KXAppDelegate checkItem:@"KXCode"
@@ -121,13 +143,9 @@ BOOL _hasFinished;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void){
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.capture stop];
-            self.capture.delegate = nil;
 
             if (!isPresent && inserted) {
-                
-                [self.navigationController popViewControllerAnimated:YES];
-                _hasFinished = TRUE;
+                [self performSegueWithIdentifier:@"startBarcodeController" sender:self];
             } else {
                 [self.scanRectView setColorRectangleRed:0.0 Green:1.0 Blue:0.0];
                 [self.scanRectView setNeedsDisplay];
@@ -153,14 +171,8 @@ BOOL _hasFinished;
                 [actionSheet showInView:self.view];
             }
             //[self.navigationController popViewControllerAnimated:YES];
-            
-            
         });
     });
-    
-    
-    
-    // Vibrate
     NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
 }
 
@@ -176,33 +188,10 @@ BOOL _hasFinished;
     
 }
 
--(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    
-    if (_hasFinished) {
-        if([self.myDelegate respondsToSelector:@selector(secondViewControllerDismissed:)])
-        {
-            [self.myDelegate secondViewControllerDismissed:_currentCode];
-        }
-    }
-}
-
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.capture.delegate = nil;
     
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue
-                 sender:(id)sender {
-    NSLog(@"%s - START", __PRETTY_FUNCTION__);
-    
-    if ([segue.identifier isEqualToString:@"startBarcodeController"]) {
-        KXBarcodeViewController* barcodeViewController = [segue destinationViewController];
-        [barcodeViewController setBarcode:_currentCode];
-        NSLog(@"%s - segue", __PRETTY_FUNCTION__);
-    }
-    NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
 }
 
 - (void)didReceiveMemoryWarning
@@ -227,6 +216,7 @@ BOOL _hasFinished;
 }
 
 -(void) initCapture {
+    _hasFinished = NO;
     self.capture.delegate = self;
     self.capture.layer.frame = self.view.bounds;
     [self.scanRectView setColorRectangleRed:1.0 Green:0.0 Blue:0.0];
@@ -248,7 +238,7 @@ BOOL _hasFinished;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     NSLog(@"%s - START", __PRETTY_FUNCTION__);
-    _hasFinished = FALSE;
+    _hasFinished = NO;
     [self initCapture];
     //CGAffineTransform captureSizeTransform = CGAffineTransformMakeScale(320 / self.view.frame.size.width, 480 / self.view.frame.size.height);
     //self.capture.scanRect = self.view.frame;//CGRectApplyAffineTransform(self.scanRectView.frame, captureSizeTransform);

@@ -193,20 +193,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         self.currentCode = nil;
         
     } else if ([segue.identifier isEqualToString:@"startBarcodeScan"]) {
-        KXScanController* secondViewController =  [segue destinationViewController];
-        secondViewController.myDelegate = self;
+     //   KXScanController* secondViewController =  [segue destinationViewController];
     }
     NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
-}
-
-- (void)secondViewControllerDismissed:(KXCode*)code {
-    NSLog(@"%s - START", __PRETTY_FUNCTION__);
-    self.currentCode = code;
-    
-    [self performSegueWithIdentifier:@"startBarcodeController" sender:self];
-    
-    NSLog(@"%s - STOP", __PRETTY_FUNCTION__);
-    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView

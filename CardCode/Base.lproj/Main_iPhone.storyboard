@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fBG-gi-FsE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fBG-gi-FsE">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller - Item-->
+        <!--Item-->
         <scene sceneID="MJx-pF-Gkx">
             <objects>
                 <navigationController definesPresentationContext="YES" id="fBG-gi-FsE" sceneMemberID="viewController">
@@ -20,7 +20,7 @@
             </objects>
             <point key="canvasLocation" x="344" y="-446"/>
         </scene>
-        <!--Selection Controller - First-->
+        <!--First-->
         <scene sceneID="W3I-pn-N6e">
             <objects>
                 <viewController title="First" id="CZ4-MO-1fc" customClass="KXSelectionController" sceneMemberID="viewController">
@@ -125,7 +125,7 @@
             </objects>
             <point key="canvasLocation" x="893" y="-382"/>
         </scene>
-        <!--Scan Controller - Second-->
+        <!--Second-->
         <scene sceneID="ot8-2e-RuS">
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" title="Second" automaticallyAdjustsScrollViewInsets="NO" id="QUy-BD-bpt" customClass="KXScanController" sceneMemberID="viewController">
@@ -147,6 +147,7 @@
                     <connections>
                         <outlet property="scanRectView" destination="iiZ-3R-HQ5" id="4ih-75-WLl"/>
                         <segue destination="Vn3-OM-bNh" kind="unwind" identifier="unwindFromScanToSelection" unwindAction="unwindToThisViewController:" id="fQ6-8c-HQz"/>
+                        <segue destination="a2Y-Y7-ssd" kind="push" identifier="startBarcodeController" id="wC4-kh-Y9z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
@@ -233,7 +234,7 @@
             </objects>
             <point key="canvasLocation" x="1457" y="-266"/>
         </scene>
-        <!--Barcode Display Controller - Title-->
+        <!--Title-->
         <scene sceneID="qOd-wL-PuY">
             <objects>
                 <viewController id="Da3-0M-UIX" customClass="KXBarcodeDisplayController" sceneMemberID="viewController">
@@ -385,4 +386,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="wC4-kh-Y9z"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A60560B319B9BABE006C4323 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A60560B019B9BABE006C4323 /* SVProgressHUD.bundle */; };
 		A60560B419B9BABE006C4323 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A60560B219B9BABE006C4323 /* SVProgressHUD.m */; };
-		A6613A1F19B60E53005DE5A1 /* libZXingObjC-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6613A0019B60AA3005DE5A1 /* libZXingObjC-iOS.a */; };
+		A658833519C8F24C00959E24 /* libZXingObjC-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A65A9B4C19C8F00700C054FF /* libZXingObjC-iOS.a */; };
 		A6613A2C19B616BE005DE5A1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6613A2B19B616BE005DE5A1 /* AudioToolbox.framework */; };
 		A6613A2E19B616C4005DE5A1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6613A2D19B616C4005DE5A1 /* QuartzCore.framework */; };
 		A6613A3019B616D9005DE5A1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6613A2F19B616D9005DE5A1 /* CoreVideo.framework */; };
@@ -45,47 +45,47 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A66139FF19B60AA3005DE5A1 /* PBXContainerItemProxy */ = {
+		A658833619C8F25400959E24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+			containerPortal = A65A9B4319C8F00700C054FF /* ZXingObjC.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25403CB2166A96FA00E13304;
+			remoteInfo = "ZXingObjC-iOS";
+		};
+		A65A9B4B19C8F00700C054FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A65A9B4319C8F00700C054FF /* ZXingObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25403CB3166A96FA00E13304;
 			remoteInfo = "ZXingObjC-iOS";
 		};
-		A6613A0119B60AA3005DE5A1 /* PBXContainerItemProxy */ = {
+		A65A9B4D19C8F00700C054FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+			containerPortal = A65A9B4319C8F00700C054FF /* ZXingObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25403CC4166A96FA00E13304;
 			remoteInfo = "Unit Tests iOS";
 		};
-		A6613A0319B60AA3005DE5A1 /* PBXContainerItemProxy */ = {
+		A65A9B4F19C8F00700C054FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+			containerPortal = A65A9B4319C8F00700C054FF /* ZXingObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25404166166AADAC00E13304;
 			remoteInfo = "ZXingObjC-osx";
 		};
-		A6613A0519B60AA3005DE5A1 /* PBXContainerItemProxy */ = {
+		A65A9B5119C8F00700C054FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+			containerPortal = A65A9B4319C8F00700C054FF /* ZXingObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 25404178166AADAC00E13304;
 			remoteInfo = "Unit Tests OS X";
 		};
-		A6613A0719B60AA3005DE5A1 /* PBXContainerItemProxy */ = {
+		A65A9B5319C8F00700C054FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+			containerPortal = A65A9B4319C8F00700C054FF /* ZXingObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2540439E166ABA0A00E13304;
 			remoteInfo = "OS X Framework";
-		};
-		A6613A3319B61D8F005DE5A1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 25403CB2166A96FA00E13304;
-			remoteInfo = "ZXingObjC-iOS";
 		};
 		A6A793B219B6062B00319215 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -101,7 +101,7 @@
 		A60560B019B9BABE006C4323 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		A60560B119B9BABE006C4323 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		A60560B219B9BABE006C4323 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingObjC.xcodeproj; path = "../ZXingObjC-master/ZXingObjC.xcodeproj"; sourceTree = "<group>"; };
+		A65A9B4319C8F00700C054FF /* ZXingObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZXingObjC.xcodeproj; path = "../../Desktop/ZXingObjC-master/ZXingObjC.xcodeproj"; sourceTree = "<group>"; };
 		A6613A2B19B616BE005DE5A1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A6613A2D19B616C4005DE5A1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A6613A2F19B616D9005DE5A1 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -155,11 +155,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A658833519C8F24C00959E24 /* libZXingObjC-iOS.a in Frameworks */,
 				A6613A3019B616D9005DE5A1 /* CoreVideo.framework in Frameworks */,
 				A696BA8F19B608AA008ACC24 /* CoreMedia.framework in Frameworks */,
 				A6613A2E19B616C4005DE5A1 /* QuartzCore.framework in Frameworks */,
 				A6613A2C19B616BE005DE5A1 /* AudioToolbox.framework in Frameworks */,
-				A6613A1F19B60E53005DE5A1 /* libZXingObjC-iOS.a in Frameworks */,
 				A696BA8D19B608A1008ACC24 /* ImageIO.framework in Frameworks */,
 				A696BA8B19B6089A008ACC24 /* AVFoundation.framework in Frameworks */,
 				A6A7938E19B6062B00319215 /* UIKit.framework in Frameworks */,
@@ -193,14 +193,14 @@
 			path = CardCode/SVProgressHUD;
 			sourceTree = "<group>";
 		};
-		A66139F819B60AA2005DE5A1 /* Products */ = {
+		A65A9B4419C8F00700C054FF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A6613A0019B60AA3005DE5A1 /* libZXingObjC-iOS.a */,
-				A6613A0219B60AA3005DE5A1 /* Unit Tests iOS.xctest */,
-				A6613A0419B60AA3005DE5A1 /* libZXingObjC-osx.a */,
-				A6613A0619B60AA3005DE5A1 /* Unit Tests OS X.xctest */,
-				A6613A0819B60AA3005DE5A1 /* ZXingObjC.framework */,
+				A65A9B4C19C8F00700C054FF /* libZXingObjC-iOS.a */,
+				A65A9B4E19C8F00700C054FF /* Unit Tests iOS.xctest */,
+				A65A9B5019C8F00700C054FF /* libZXingObjC-osx.a */,
+				A65A9B5219C8F00700C054FF /* Unit Tests OS X.xctest */,
+				A65A9B5419C8F00700C054FF /* ZXingObjC.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,9 +208,9 @@
 		A6A7937D19B6062B00319215 = {
 			isa = PBXGroup;
 			children = (
+				A65A9B4319C8F00700C054FF /* ZXingObjC.xcodeproj */,
 				A60560AE19B9BABE006C4323 /* SVProgressHUD */,
 				A6ADE00519B8AEB4006345C2 /* Squirrel */,
-				A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */,
 				A6A7938819B6062B00319215 /* Frameworks */,
 				A6A7938719B6062B00319215 /* Products */,
 			);
@@ -323,7 +323,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A6613A3419B61D8F005DE5A1 /* PBXTargetDependency */,
+				A658833719C8F25400959E24 /* PBXTargetDependency */,
 			);
 			name = Squirrel;
 			productName = CardCode;
@@ -379,8 +379,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = A66139F819B60AA2005DE5A1 /* Products */;
-					ProjectRef = A66139F719B60AA2005DE5A1 /* ZXingObjC.xcodeproj */;
+					ProductGroup = A65A9B4419C8F00700C054FF /* Products */;
+					ProjectRef = A65A9B4319C8F00700C054FF /* ZXingObjC.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -392,39 +392,39 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		A6613A0019B60AA3005DE5A1 /* libZXingObjC-iOS.a */ = {
+		A65A9B4C19C8F00700C054FF /* libZXingObjC-iOS.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libZXingObjC-iOS.a";
-			remoteRef = A66139FF19B60AA3005DE5A1 /* PBXContainerItemProxy */;
+			remoteRef = A65A9B4B19C8F00700C054FF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A6613A0219B60AA3005DE5A1 /* Unit Tests iOS.xctest */ = {
+		A65A9B4E19C8F00700C054FF /* Unit Tests iOS.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Unit Tests iOS.xctest";
-			remoteRef = A6613A0119B60AA3005DE5A1 /* PBXContainerItemProxy */;
+			remoteRef = A65A9B4D19C8F00700C054FF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A6613A0419B60AA3005DE5A1 /* libZXingObjC-osx.a */ = {
+		A65A9B5019C8F00700C054FF /* libZXingObjC-osx.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libZXingObjC-osx.a";
-			remoteRef = A6613A0319B60AA3005DE5A1 /* PBXContainerItemProxy */;
+			remoteRef = A65A9B4F19C8F00700C054FF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A6613A0619B60AA3005DE5A1 /* Unit Tests OS X.xctest */ = {
+		A65A9B5219C8F00700C054FF /* Unit Tests OS X.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Unit Tests OS X.xctest";
-			remoteRef = A6613A0519B60AA3005DE5A1 /* PBXContainerItemProxy */;
+			remoteRef = A65A9B5119C8F00700C054FF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		A6613A0819B60AA3005DE5A1 /* ZXingObjC.framework */ = {
+		A65A9B5419C8F00700C054FF /* ZXingObjC.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ZXingObjC.framework;
-			remoteRef = A6613A0719B60AA3005DE5A1 /* PBXContainerItemProxy */;
+			remoteRef = A65A9B5319C8F00700C054FF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -486,10 +486,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A6613A3419B61D8F005DE5A1 /* PBXTargetDependency */ = {
+		A658833719C8F25400959E24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "ZXingObjC-iOS";
-			targetProxy = A6613A3319B61D8F005DE5A1 /* PBXContainerItemProxy */;
+			targetProxy = A658833619C8F25400959E24 /* PBXContainerItemProxy */;
 		};
 		A6A793B319B6062B00319215 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -544,6 +544,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -584,6 +585,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -620,7 +622,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Squirrel;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9e15760e-d421-4787-8108-7c92fd213cb3";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -645,7 +647,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Squirrel;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "9e15760e-d421-4787-8108-7c92fd213cb3";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;

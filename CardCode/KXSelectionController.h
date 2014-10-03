@@ -12,7 +12,6 @@
 
 @interface KXSelectionController : UIViewController <UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout,
-SecondDelegate,
 UIGestureRecognizerDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) KXCode* currentCode;
 - (IBAction)plusButtonPressed:(id)sender;

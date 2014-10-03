@@ -13,18 +13,16 @@
 
 - (IBAction)okButtonPressed:(id)sender;
 - (IBAction)cameraButtonPressed:(id)sender;
-
-@property (nonatomic, weak) KXCode* currentCode;
-@property (nonatomic, weak) NSString* barcodeText;
-@property (nonatomic) NSInteger indexPhoto;
-
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
-@property (weak, nonatomic) IBOutlet UIImageView *overlayView;
 - (IBAction)cancelButtonPressed:(id)sender;
 - (IBAction)takePicturePressed:(id)sender;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *titleToolbar;
-@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (nonatomic) NSInteger indexPhoto;
+@property (nonatomic, strong) KXCode* currentCode;
+@property (nonatomic, strong) NSString* barcodeText;
+@property (nonatomic, weak) IBOutlet UIImageView *imageView;
+@property (nonatomic, weak) IBOutlet UIImageView *overlayView;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *titleToolbar;
+@property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 
 @end
